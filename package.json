@@ -1,6 +1,6 @@
 {
   "name": "cogs-transformer-uglify-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Casey Foster <c@sey.me>",
   "description": "An UglifyJS transformer for Cogs.",
   "license": "MIT",
@@ -9,11 +9,11 @@
     "url": "https://github.com/caseywebdev/cogs-transformer-uglify-js"
   },
   "dependencies": {
-    "uglify-js": "2.4.16",
-    "underscore": "1.7.0"
+    "uglify-js": "2.4.17",
+    "underscore": "1.8.2"
   },
   "devDependencies": {
-    "cogs-test-helper": "1.0.1"
+    "cogs-test-helper": "1.0.3"
   },
   "scripts": {
     "test": "cogs-test-helper test/test.js"
