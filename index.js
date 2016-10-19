@@ -1,14 +1,19 @@
-var _ = require('underscore');
-var uglifyJs = require('uglify-js');
+const _ = require('underscore');
+const uglifyJs = require('uglify-js');
 
-var DEFAULTS = {
+const DEFAULTS = {
   fromString: true
 };
 
-module.exports = function (file, options, cb) {
-  var source = file.buffer.toString();
-  options = _.extend({}, DEFAULTS, options);
-  try { source = uglifyJs.minify(source, options).code + '\n'; }
-  catch (er) { return cb(_.extend(new Error(), er)); }
-  cb(null, {buffer: new Buffer(source)});
+module.exports = ({file: {buffer}, options}) => {
+  try {
+    options = _.extend({}, DEFAULTS, options);
+    return {
+      buffer: Buffer.from(
+        `${uglifyJs.minify(buffer.toString(), options).code}\n`
+      )
+    };
+  } catch (er) {
+    throw er instanceof Error ? er : _.extend(new Error(), er);
+  }
 };
