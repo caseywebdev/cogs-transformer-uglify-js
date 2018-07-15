@@ -1,4 +1,4 @@
-const {minify} = require('uglify-js');
+const {minify} = require('uglify-es');
 
 module.exports = ({file: {buffer}, options}) => {
   const {code, error} = minify(buffer.toString(), options);
